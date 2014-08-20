@@ -12,7 +12,7 @@ by_person = commutes.group_by{|hash| hash['Person']}
 
 by_person.each_value do |values|
   values.each do |hashes|
-    hashes.each do |key|
+    hashes.each do |key, value|
       if key == "Person"
         hashes.delete(key)
       end
@@ -20,7 +20,13 @@ by_person.each_value do |values|
   end
 end
 
-pp by_person
+by_person["Nate"].each do |week|
+  if week["Week"] == "4" && week["Day"] == "Wednesday"
+    pp week["Inbound"]
+  end
+end
+
+
 
 
 
